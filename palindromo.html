@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verificador de Palíndromos</title>
+    </head>
+    <body>
+        <h1>Verificador de Palíndromos</h1>
+        <label for="palabra">INSERTAR UNA PALABRA:</label>
+        <input type="text" id="palabra">
+        <button onclick="esPalindromo()">CHECAR</button>
+    </body>
+    <script>
+        function esPalindromo() {
+            var palabra = document.getElementById("palabra").value;
+            palabra = palabra.replace(/\s/g, '').toLowerCase();
+            var palabraInvertida = palabra.split('').reverse().join('');
+            if (palabra === palabraInvertida) {
+                Swal.fire( {
+                    icon: "success",
+                    text: palabra + " es un palíndromo."});
+            } else {
+                Swal.fire( {
+                    icon: "error",
+                    text: palabra + " no es un palíndromo."});
+            }
+        }    
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </html>
